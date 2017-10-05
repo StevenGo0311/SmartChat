@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorBackground">
+    <LinearLayout
+        android:id="@+id/id_linearlayout_title"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:gravity="center"
+        android:background="@color/colorTitleBackground"
+        android:layout_alignParentTop="true">
+        <TextView
+            android:id="@+id/id_textView_friend"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/friend_name"
+            android:textSize="24sp"
+            android:textColor="@color/colorTextTitle" />
+    </LinearLayout>
+    <ListView
+        android:id="@+id/id_listView_chat_content"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/id_linearlayout_title"
+        android:layout_above="@+id/id_linearlayout_inputandsend"
+        android:divider="@null">
+    </ListView>
+    <LinearLayout
+        android:id="@+id/id_linearlayout_inputandsend"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginRight="10dp"
+        android:layout_marginLeft="10dp"
+        android:orientation="horizontal"
+        android:gravity="bottom"
+        android:paddingBottom="10dp">
+        <EditText
+            android:id="@+id/id_editText_text"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="4"
+            android:background="@drawable/background_edit_text"
+            android:layout_marginRight="5dp"
+            android:textColor="@color/colorTextInput" />
+        <Button
+            android:id="@+id/id_button_send"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/button_send"
+            android:textSize="20dp"
+            android:background="@drawable/background_button_send"
+            android:layout_marginLeft="5dp"
+            android:textColor="@color/colorTextSend"/>
+    </LinearLayout>
+</RelativeLayout>

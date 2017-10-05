@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">My Application</string>
+    <string name="friend_name">图先森</string>
+    <string name="button_send">发送</string>
+</resources>

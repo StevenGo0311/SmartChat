@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+    <color name="colorTitleBackground">#f4f4f4</color>
+    <color name="colorBackground">#ecedf1</color>
+    <color name="colorTextTitle">#000000</color>
+    <color name="colorTextSend">#ffffff</color>
+    <color name="colorTextReceive">#000000</color>
+    <color name="colorButtonBackgroundNomal">#0188fb</color>
+    <color name="colorButtonBackgroundPressed">#8198db</color>
+    <color name="colorBackgroundEdiText">#ffffff</color>
+    <color name="colorTextInput">#000000</color>
+</resources>
