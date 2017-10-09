@@ -1,0 +1,4 @@
+#Fri Oct 06 12:06:26 CST 2017
+base.0=D\:\\AndroidDeveloper\\SmartChat\\test\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\5\\slice_7
+renamed.0=classes.dex
+file.0=D\:\\AndroidDeveloper\\SmartChat\\test\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\5\\slice_7\\classes.dex

@@ -1,3 +1,18 @@
 <resources>
-    <string name="app_name">My Application</string>
+    <string name="app_name">SmartChat</string>
+    <string name="friend_name">图先森</string>
+    <string name="send">发送</string>
+    <string name="back">返回</string>
+    <string name="click_to_change_icon">点击头像进行更改</string>
+    <string name="setting_friend_name">设置好友姓名</string>
+    <string name="about_smart_chat">关于SmartChat</string>
+    <string name="contact_us">联系我们</string>
+    <string name="finish_application">关闭程序</string>
+    <string name="test">这是一个测试这是一个测试这是一个测试这是一个测试</string>
+    <string name="setting">设置</string>
+    <string name="special_thanks">特别鸣谢</string>
+    <string name="select_method_camera">拍照</string>
+    <string name="select_method_gallery">相册</string>
+    <string name="select_method">选择打开方式</string>
+
 </resources>

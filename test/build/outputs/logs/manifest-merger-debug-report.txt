@@ -1,0 +1,105 @@
+-- Merging decision tree log ---
+manifest
+ADDED from D:\AndroidDeveloper\SmartChat\test\src\main\AndroidManifest.xml:2:1-31:12
+	package
+		ADDED from D:\AndroidDeveloper\SmartChat\test\src\main\AndroidManifest.xml:3:5-42
+		INJECTED from D:\AndroidDeveloper\SmartChat\test\src\main\AndroidManifest.xml
+		INJECTED from D:\AndroidDeveloper\SmartChat\test\src\main\AndroidManifest.xml
+	android:versionName
+		INJECTED from D:\AndroidDeveloper\SmartChat\test\src\main\AndroidManifest.xml
+		INJECTED from D:\AndroidDeveloper\SmartChat\test\src\main\AndroidManifest.xml
+	xmlns:android
+		ADDED from D:\AndroidDeveloper\SmartChat\test\src\main\AndroidManifest.xml:2:11-69
+	android:versionCode
+		INJECTED from D:\AndroidDeveloper\SmartChat\test\src\main\AndroidManifest.xml
+		INJECTED from D:\AndroidDeveloper\SmartChat\test\src\main\AndroidManifest.xml
+uses-permission#android.permission.WRITE_EXTERNAL_STORAGE
+ADDED from D:\AndroidDeveloper\SmartChat\test\src\main\AndroidManifest.xml:5:5-81
+	android:name
+		ADDED from D:\AndroidDeveloper\SmartChat\test\src\main\AndroidManifest.xml:5:22-78
+application
+ADDED from D:\AndroidDeveloper\SmartChat\test\src\main\AndroidManifest.xml:7:5-29:19
+MERGED from [com.android.support:appcompat-v7:25.3.1] C:\Users\StevenGo\.android\build-cache\19f7101940bebdd7893d546f6129b80fa0f29559\output\AndroidManifest.xml:29:5-20
+MERGED from [com.android.support:support-v4:25.3.1] C:\Users\StevenGo\.android\build-cache\b9850188e71e991cdc6bff9c8a20da7b144d8135\output\AndroidManifest.xml:29:5-20
+MERGED from [com.android.support:support-fragment:25.3.1] C:\Users\StevenGo\.android\build-cache\9b5976273d8962160a42d7b6d259753f3e9de023\output\AndroidManifest.xml:29:5-20
+MERGED from [com.android.support:support-media-compat:25.3.1] C:\Users\StevenGo\.android\build-cache\bf8a17b4723ed828da90cf6f26b275a902eab6f5\output\AndroidManifest.xml:29:5-20
+MERGED from [com.android.support:support-core-ui:25.3.1] C:\Users\StevenGo\.android\build-cache\a5eea9787ec4c7beb4e89282838c15c42fee5fdd\output\AndroidManifest.xml:29:5-20
+MERGED from [com.android.support:support-core-utils:25.3.1] C:\Users\StevenGo\.android\build-cache\9985dd9e80b4797e3f1233826eb115b3d2bb15a4\output\AndroidManifest.xml:29:5-20
+MERGED from [com.android.support:animated-vector-drawable:25.3.1] C:\Users\StevenGo\.android\build-cache\43f13e05f1bf4e4e099af19002d0c0224f72ef6f\output\AndroidManifest.xml:26:5-20
+MERGED from [com.android.support:support-vector-drawable:25.3.1] C:\Users\StevenGo\.android\build-cache\f49ea3730a648adbfc83c932cca0d8cf7ff10dd6\output\AndroidManifest.xml:26:5-20
+MERGED from [com.android.support:support-compat:25.3.1] C:\Users\StevenGo\.android\build-cache\72db8f636f3518ed212500774d1fbfbf7235e764\output\AndroidManifest.xml:29:5-20
+MERGED from [com.android.support.constraint:constraint-layout:1.0.2] C:\Users\StevenGo\.android\build-cache\28b1584df7966ad47778cd43b4d3926efcd6b202\output\AndroidManifest.xml:9:5-20
+	android:label
+		ADDED from D:\AndroidDeveloper\SmartChat\test\src\main\AndroidManifest.xml:10:9-41
+	android:supportsRtl
+		ADDED from D:\AndroidDeveloper\SmartChat\test\src\main\AndroidManifest.xml:11:9-35
+	android:allowBackup
+		ADDED from D:\AndroidDeveloper\SmartChat\test\src\main\AndroidManifest.xml:8:9-35
+	android:icon
+		ADDED from D:\AndroidDeveloper\SmartChat\test\src\main\AndroidManifest.xml:9:9-43
+	android:theme
+		ADDED from D:\AndroidDeveloper\SmartChat\test\src\main\AndroidManifest.xml:12:9-40
+activity#com.example.cameraalbumtest.MainActivity
+ADDED from D:\AndroidDeveloper\SmartChat\test\src\main\AndroidManifest.xml:13:9-19:20
+	android:name
+		ADDED from D:\AndroidDeveloper\SmartChat\test\src\main\AndroidManifest.xml:13:19-47
+intent-filter#android.intent.action.MAIN+android.intent.category.LAUNCHER
+ADDED from D:\AndroidDeveloper\SmartChat\test\src\main\AndroidManifest.xml:14:13-18:29
+action#android.intent.action.MAIN
+ADDED from D:\AndroidDeveloper\SmartChat\test\src\main\AndroidManifest.xml:15:17-69
+	android:name
+		ADDED from D:\AndroidDeveloper\SmartChat\test\src\main\AndroidManifest.xml:15:25-66
+category#android.intent.category.LAUNCHER
+ADDED from D:\AndroidDeveloper\SmartChat\test\src\main\AndroidManifest.xml:17:17-77
+	android:name
+		ADDED from D:\AndroidDeveloper\SmartChat\test\src\main\AndroidManifest.xml:17:27-74
+provider#android.support.v4.content.FileProvider
+ADDED from D:\AndroidDeveloper\SmartChat\test\src\main\AndroidManifest.xml:20:9-28:20
+	android:authorities
+		ADDED from D:\AndroidDeveloper\SmartChat\test\src\main\AndroidManifest.xml:22:13-75
+	android:grantUriPermissions
+		ADDED from D:\AndroidDeveloper\SmartChat\test\src\main\AndroidManifest.xml:24:13-47
+	android:exported
+		ADDED from D:\AndroidDeveloper\SmartChat\test\src\main\AndroidManifest.xml:23:13-37
+	android:name
+		ADDED from D:\AndroidDeveloper\SmartChat\test\src\main\AndroidManifest.xml:21:13-67
+meta-data#android.support.FILE_PROVIDER_PATHS
+ADDED from D:\AndroidDeveloper\SmartChat\test\src\main\AndroidManifest.xml:25:13-27:54
+	android:resource
+		ADDED from D:\AndroidDeveloper\SmartChat\test\src\main\AndroidManifest.xml:27:17-51
+	android:name
+		ADDED from D:\AndroidDeveloper\SmartChat\test\src\main\AndroidManifest.xml:26:17-67
+uses-sdk
+INJECTED from D:\AndroidDeveloper\SmartChat\test\src\main\AndroidManifest.xml reason: use-sdk injection requested
+MERGED from [com.android.support:appcompat-v7:25.3.1] C:\Users\StevenGo\.android\build-cache\19f7101940bebdd7893d546f6129b80fa0f29559\output\AndroidManifest.xml:21:5-23:78
+MERGED from [com.android.support:support-v4:25.3.1] C:\Users\StevenGo\.android\build-cache\b9850188e71e991cdc6bff9c8a20da7b144d8135\output\AndroidManifest.xml:21:5-23:54
+MERGED from [com.android.support:support-fragment:25.3.1] C:\Users\StevenGo\.android\build-cache\9b5976273d8962160a42d7b6d259753f3e9de023\output\AndroidManifest.xml:21:5-23:60
+MERGED from [com.android.support:support-media-compat:25.3.1] C:\Users\StevenGo\.android\build-cache\bf8a17b4723ed828da90cf6f26b275a902eab6f5\output\AndroidManifest.xml:21:5-23:63
+MERGED from [com.android.support:support-core-ui:25.3.1] C:\Users\StevenGo\.android\build-cache\a5eea9787ec4c7beb4e89282838c15c42fee5fdd\output\AndroidManifest.xml:21:5-23:58
+MERGED from [com.android.support:support-core-utils:25.3.1] C:\Users\StevenGo\.android\build-cache\9985dd9e80b4797e3f1233826eb115b3d2bb15a4\output\AndroidManifest.xml:21:5-23:61
+MERGED from [com.android.support:animated-vector-drawable:25.3.1] C:\Users\StevenGo\.android\build-cache\43f13e05f1bf4e4e099af19002d0c0224f72ef6f\output\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-vector-drawable:25.3.1] C:\Users\StevenGo\.android\build-cache\f49ea3730a648adbfc83c932cca0d8cf7ff10dd6\output\AndroidManifest.xml:20:5-43
+MERGED from [com.android.support:support-compat:25.3.1] C:\Users\StevenGo\.android\build-cache\72db8f636f3518ed212500774d1fbfbf7235e764\output\AndroidManifest.xml:21:5-23:58
+MERGED from [com.android.support.constraint:constraint-layout:1.0.2] C:\Users\StevenGo\.android\build-cache\28b1584df7966ad47778cd43b4d3926efcd6b202\output\AndroidManifest.xml:5:5-7:41
+	tools:overrideLibrary
+		ADDED from [com.android.support:appcompat-v7:25.3.1] C:\Users\StevenGo\.android\build-cache\19f7101940bebdd7893d546f6129b80fa0f29559\output\AndroidManifest.xml:23:9-75
+	android:targetSdkVersion
+		INJECTED from D:\AndroidDeveloper\SmartChat\test\src\main\AndroidManifest.xml
+		INJECTED from D:\AndroidDeveloper\SmartChat\test\src\main\AndroidManifest.xml
+	android:minSdkVersion
+		INJECTED from D:\AndroidDeveloper\SmartChat\test\src\main\AndroidManifest.xml
+		INJECTED from D:\AndroidDeveloper\SmartChat\test\src\main\AndroidManifest.xml
+meta-data#android.support.VERSION
+ADDED from [com.android.support:appcompat-v7:25.3.1] C:\Users\StevenGo\.android\build-cache\19f7101940bebdd7893d546f6129b80fa0f29559\output\AndroidManifest.xml:25:5-27:34
+MERGED from [com.android.support:support-v4:25.3.1] C:\Users\StevenGo\.android\build-cache\b9850188e71e991cdc6bff9c8a20da7b144d8135\output\AndroidManifest.xml:25:5-27:34
+MERGED from [com.android.support:support-fragment:25.3.1] C:\Users\StevenGo\.android\build-cache\9b5976273d8962160a42d7b6d259753f3e9de023\output\AndroidManifest.xml:25:5-27:34
+MERGED from [com.android.support:support-media-compat:25.3.1] C:\Users\StevenGo\.android\build-cache\bf8a17b4723ed828da90cf6f26b275a902eab6f5\output\AndroidManifest.xml:25:5-27:34
+MERGED from [com.android.support:support-core-ui:25.3.1] C:\Users\StevenGo\.android\build-cache\a5eea9787ec4c7beb4e89282838c15c42fee5fdd\output\AndroidManifest.xml:25:5-27:34
+MERGED from [com.android.support:support-core-utils:25.3.1] C:\Users\StevenGo\.android\build-cache\9985dd9e80b4797e3f1233826eb115b3d2bb15a4\output\AndroidManifest.xml:25:5-27:34
+MERGED from [com.android.support:animated-vector-drawable:25.3.1] C:\Users\StevenGo\.android\build-cache\43f13e05f1bf4e4e099af19002d0c0224f72ef6f\output\AndroidManifest.xml:22:5-24:34
+MERGED from [com.android.support:support-vector-drawable:25.3.1] C:\Users\StevenGo\.android\build-cache\f49ea3730a648adbfc83c932cca0d8cf7ff10dd6\output\AndroidManifest.xml:22:5-24:34
+MERGED from [com.android.support:support-compat:25.3.1] C:\Users\StevenGo\.android\build-cache\72db8f636f3518ed212500774d1fbfbf7235e764\output\AndroidManifest.xml:25:5-27:34
+	android:value
+		ADDED from [com.android.support:appcompat-v7:25.3.1] C:\Users\StevenGo\.android\build-cache\19f7101940bebdd7893d546f6129b80fa0f29559\output\AndroidManifest.xml:27:9-31
+	android:name
+		ADDED from [com.android.support:appcompat-v7:25.3.1] C:\Users\StevenGo\.android\build-cache\19f7101940bebdd7893d546f6129b80fa0f29559\output\AndroidManifest.xml:26:9-47

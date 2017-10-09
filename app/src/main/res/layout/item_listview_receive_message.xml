@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:paddingBottom="16dp">
+    <TextView
+        android:id="@+id/id_textView_time_receive"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:textSize="14sp"
+        android:textColor="@color/colorText"
+        android:text="@string/friend_name"
+        android:paddingBottom="10dp"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        android:gravity="left"
+        android:orientation="horizontal">
+
+        <com.stevengo.myapplication.views.RoundImageView
+            android:id="@+id/id_imageview_icon_receive"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_gravity="top"
+            android:layout_marginStart="5dp"
+            android:src="@drawable/icon_test_receive" />
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="@drawable/bubble_small_receive">
+            <TextView
+                android:id="@+id/id_textview_message_receive"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="left|center_vertical"
+                android:textSize="18sp"
+                android:maxWidth="220dp"
+                android:textColor="@color/colorText"
+                android:autoLink="web"/>
+            <ImageView
+                android:id="@+id/id_imageview_image_receive"
+                android:layout_width="200dp"
+                android:layout_height="150dp"
+                android:src="@drawable/icon_test_receive"
+                android:scaleType="centerCrop"
+                android:visibility="gone"/>
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>

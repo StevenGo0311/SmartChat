@@ -2,6 +2,53 @@
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
-   
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/colorBackground">
+    <include
+        android:id="@+id/id_title_bar_main"
+        layout="@layout/fragment_title_bar_main"/>
+    <LinearLayout
+        android:id="@+id/id_linearlayout_input_send"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_alignParentBottom="true"
+        android:paddingBottom="10dp">
+        <EditText
+            android:id="@+id/id_edittext_text"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="4"
+            android:layout_marginEnd="5dp"
+            android:paddingStart="4dp"
+            android:paddingEnd="0dp"
+            android:background="@drawable/background_edittext_input"
+            android:textCursorDrawable="@drawable/style_cursor"
+            android:textSize="18sp"
+            android:maxLines="3"/>
+        <Button
+            android:id="@+id/id_button_send"
+            android:layout_width="0dp"
+            android:layout_height="34dp"
+            android:layout_weight="1"
+            android:textSize="20sp"
+            android:layout_marginStart="5dp"
+            android:background="@drawable/background_button_send"
+            android:text="@string/send"
+            android:textColor="@color/colorMainWhite"
+            android:layout_gravity="bottom"/>
+
+    </LinearLayout>
+    <ListView
+        android:id="@+id/id_listview_chat_content"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/id_title_bar_main"
+        android:layout_above="@id/id_linearlayout_input_send">
+    </ListView>
+
+
 </RelativeLayout>

@@ -4,6 +4,7 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/SmartChat.iml" filepath="$PROJECT_DIR$/SmartChat.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/hyperlinkDemo/hyperlinkDemo.iml" filepath="$PROJECT_DIR$/hyperlinkDemo/hyperlinkDemo.iml" />
     </modules>
   </component>
 </project>

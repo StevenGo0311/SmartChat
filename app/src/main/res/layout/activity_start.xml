@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorMainWhite"
+    >
+    <ImageView
+        android:id="@+id/id_iamgeview_icon"
+        android:layout_width="140dp"
+        android:layout_height="140dp"
+        android:src="@mipmap/icon"
+        android:layout_marginTop="160dp"
+        android:layout_centerHorizontal="true"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/app_name"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="100dp"
+        android:textSize="42sp"
+        android:textColor="@color/colorMainBlue"
+        android:layout_centerHorizontal="true" />
+</RelativeLayout>

@@ -24,7 +24,6 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_below="@id/id_linearlayout_title"
-        android:layout_above="@+id/id_linearlayout_inputandsend"
         android:divider="@null">
     </ListView>
     <LinearLayout
