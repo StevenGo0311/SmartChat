@@ -7,7 +7,7 @@
     android:background="@color/colorMainWhite"
     android:divider="@drawable/divider_linear_layout"
     android:showDividers="beginning|middle|end">
-
+    <!--
     <TextView
         android:id="@+id/id_textView_contact_us"
         android:layout_width="match_parent"
@@ -19,7 +19,7 @@
         android:paddingEnd="20dp"
         android:textSize="20sp"
         android:textColor="@color/colorText"/>
-
+     -->
     <TextView
         android:id="@+id/id_textview_about_smart_chat"
         android:layout_width="match_parent"
@@ -30,7 +30,8 @@
         android:paddingStart="20dp"
         android:paddingEnd="20dp"
         android:textSize="20sp"
-        android:textColor="@color/colorText"/>
+        android:textColor="@color/colorText"
+        android:background="@drawable/background_setting_item"/>
     <TextView
         android:id="@+id/id_textview_special_thanks"
         android:layout_width="match_parent"
@@ -41,6 +42,7 @@
         android:paddingStart="20dp"
         android:paddingEnd="20dp"
         android:textSize="20sp"
-        android:textColor="@color/colorText"/>
+        android:textColor="@color/colorText"
+        android:background="@drawable/background_setting_item"/>
 
 </LinearLayout>

@@ -11,7 +11,9 @@ import com.stevengo.myapplication.entitys.ChatMessage;
 import com.stevengo.myapplication.entitys.Parameter;
 
 import java.io.IOException;
+import java.util.concurrent.TimeUnit;
 
+import okhttp3.OkHttpClient;
 import retrofit2.Call;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
@@ -21,15 +23,22 @@ import retrofit2.converter.gson.GsonConverterFactory;
  */
 
 public class InternetUtil {
-    private static final int RECEIVE_NULL=500000;
+    private static final int RECEIVE_NULL=000000;
+    private static final int DEFAULT_TIMEOUT=3*1000;
     public static ChatMessage doPost(Parameter parameter){
         //记录从互联上网得到的所有音乐的信息
         ChatMessage messageReceive=null;
+        OkHttpClient client = new OkHttpClient.Builder()
+                .connectTimeout(DEFAULT_TIMEOUT, TimeUnit.MILLISECONDS)
+                .writeTimeout(DEFAULT_TIMEOUT, TimeUnit.MILLISECONDS)
+                .readTimeout(DEFAULT_TIMEOUT, TimeUnit.MILLISECONDS)
+                .build();
         Retrofit retrofit=new Retrofit.Builder()
                 //添加baseUrl
                 .baseUrl(ConsTable.URL_BASE)
                 //添加转化器，将json映射到对象
                 .addConverterFactory(GsonConverterFactory.create())
+                .client(client)
                 .build();
         BaseApi apiBase =retrofit.create(BaseApi.class);
         Call<ChatMessage> musicEntityCall= apiBase.getMessage(parameter.getKEY(),parameter.getInfo(),parameter.getUserId());
@@ -37,14 +46,15 @@ public class InternetUtil {
         //同步处理Call，将json转换成对象
         try{
             messageReceive=musicEntityCall.execute().body();
+            messageReceive.setDate(DateUtil.getCurrentDate());
             if(messageReceive==null){
-                messageReceive=new ChatMessage(RECEIVE_NULL,"对不起，没有找到相关信息");
+                messageReceive=new ChatMessage(RECEIVE_NULL,"对不起，没有找到相关信息",DateUtil.getCurrentDate());
             }
             if(messageReceive.getText()==null){
                 messageReceive.setText("对不起，没有找到相关信息");
             }
         }catch (IOException e){
-            messageReceive=new ChatMessage(RECEIVE_NULL,"网络链接不畅，请稍候再试");
+            messageReceive=new ChatMessage(RECEIVE_NULL,"网络链接不畅，请稍候再试",DateUtil.getCurrentDate());
         }
         return messageReceive;
     }

@@ -3,15 +3,12 @@ package com.stevengo.myapplication.activitys;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Bitmap;
-import android.graphics.drawable.Icon;
 import android.net.Uri;
 import android.os.Environment;
 import android.provider.MediaStore;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.text.Layout;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
@@ -23,9 +20,11 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.stevengo.myapplication.R;
+import com.stevengo.myapplication.utils.ActiivtyStack;
 import com.stevengo.myapplication.utils.DoFriendNameUtil;
 import com.stevengo.myapplication.utils.GeneralUtil;
 import com.stevengo.myapplication.utils.IconCacheUtil;
+import com.stevengo.myapplication.utils.SQLiteUtil;
 
 import java.io.File;
 
@@ -35,10 +34,11 @@ public class SettingActivity extends AppCompatActivity implements View.OnClickLi
     private ImageView mIconSend;
     private RelativeLayout mSettingFriendName;
     private TextView mFriendName;
-    private TextView mContactUs;
     private TextView mAboutSmartChat;
     private TextView mSpecialThanks;
     private Button mFinishApplication;
+    private LinearLayout mClearChatRecord;
+    private TextView mChatRecord;
 
     private final static String ICON_NAME_RECEIVE="iconRecevie.jpg";
     private final static String ICON_NAME_SEND="iconSend.jpg";
@@ -47,6 +47,7 @@ public class SettingActivity extends AppCompatActivity implements View.OnClickLi
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        ActiivtyStack.getScreenManager().pushActivity(this);
         //沉浸式
         GeneralUtil.fullSceeen(this);
         setContentView(R.layout.activity_setting);
@@ -60,10 +61,11 @@ public class SettingActivity extends AppCompatActivity implements View.OnClickLi
         mIconSend=(ImageView)findViewById(R.id.id_imageview_icon_send);
         mSettingFriendName=(RelativeLayout) findViewById(R.id.id_raletive_layout_setting_name);
         mFriendName=(TextView)findViewById(R.id.id_textview_setting_name);
-        mContactUs=(TextView)findViewById(R.id.id_textView_contact_us);
         mAboutSmartChat=(TextView)findViewById(R.id.id_textview_about_smart_chat);
         mSpecialThanks=(TextView)findViewById(R.id.id_textview_special_thanks);
         mFinishApplication=(Button)findViewById(R.id.id_button_finish);
+        mClearChatRecord=(LinearLayout)findViewById(R.id.id_linearlayout_layout_clear_record);
+        mChatRecord=(TextView)findViewById(R.id.id_textview_message_record);
     }
     private void initDate(){
         Bitmap iconReceive=IconCacheUtil.readIcon(this,ICON_NAME_RECEIVE);
@@ -81,6 +83,7 @@ public class SettingActivity extends AppCompatActivity implements View.OnClickLi
             mIconSend.setImageResource(R.drawable.icon_test_send);
         }
         mFriendName.setText(DoFriendNameUtil.readFriendName(this));
+        mChatRecord.setText("共"+SQLiteUtil.chatMessageNumbers(getApplicationContext())+"条");
 
 
     }
@@ -89,11 +92,11 @@ public class SettingActivity extends AppCompatActivity implements View.OnClickLi
         mIconReceive.setOnClickListener(this);
         mIconSend.setOnClickListener(this);
         mSettingFriendName.setOnClickListener(this);
-        mContactUs.setOnClickListener(this);
         mAboutSmartChat.setOnClickListener(this);
         mSpecialThanks.setOnClickListener(this);
         mFinishApplication.setOnClickListener(this);
-}
+        mClearChatRecord.setOnClickListener(this);
+    }
 
     @Override
     public void onClick(View view) {
@@ -104,7 +107,6 @@ public class SettingActivity extends AppCompatActivity implements View.OnClickLi
             case R.id.id_imageview_icon_receive:
                 clickSource=1;
                 showTypeDialog();
-
                 break;
             case R.id.id_imageview_icon_send:
                 clickSource=2;
@@ -112,19 +114,18 @@ public class SettingActivity extends AppCompatActivity implements View.OnClickLi
                 break;
             case R.id.id_raletive_layout_setting_name:
                 settingNameDialog();
-
                 break;
-            case R.id.id_textView_contact_us:
-
+            case R.id.id_linearlayout_layout_clear_record:
+                clearMessageRecordDialog();
                 break;
             case R.id.id_textview_about_smart_chat:
-
+                aboutSmartChatDialog();
                 break;
             case R.id.id_textview_special_thanks:
-
+                specialThanksDialog();
                 break;
             case R.id.id_button_finish:
-
+                ActiivtyStack.getScreenManager().clearAllActivity();
                 break;
 
         }
@@ -152,6 +153,30 @@ public class SettingActivity extends AppCompatActivity implements View.OnClickLi
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
 
+                    }
+                }).create();
+        alertDialog.show();
+    }
+    private void aboutSmartChatDialog(){
+        View dialog= LayoutInflater.from(this).inflate(R.layout.alertdialog_about,null);
+        AlertDialog alertDialog=new AlertDialog.Builder(this)
+                .setTitle(R.string.about_smart_chat)
+                .setView(dialog)
+                .setPositiveButton("确定", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                    }
+                }).create();
+        alertDialog.show();
+    }
+    private void specialThanksDialog(){
+        View dialog= LayoutInflater.from(this).inflate(R.layout.alertdialog_thanks,null);
+        AlertDialog alertDialog=new AlertDialog.Builder(this)
+                .setTitle(R.string.special_thanks)
+                .setView(dialog)
+                .setPositiveButton("确定", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
                     }
                 }).create();
         alertDialog.show();
@@ -185,6 +210,26 @@ public class SettingActivity extends AppCompatActivity implements View.OnClickLi
                 alertDialog.dismiss();
             }
         });
+
+    }
+    private void clearMessageRecordDialog(){
+        AlertDialog alertDialog=new AlertDialog.Builder(this)
+                .setTitle(R.string.clear_record)
+                .setPositiveButton("确定", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        SQLiteUtil.clearChatMessage(getApplicationContext());
+                        mChatRecord.setText("共"+SQLiteUtil.chatMessageNumbers(getApplicationContext())+"条");
+                        Toast.makeText(getApplicationContext(), "清除成功", Toast.LENGTH_SHORT).show();
+                    }
+                })
+                .setNegativeButton("取消", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+
+                    }
+                }).create();
+        alertDialog.show();
 
     }
 
@@ -234,5 +279,10 @@ public class SettingActivity extends AppCompatActivity implements View.OnClickLi
         intent.putExtra("outputY", 150);
         intent.putExtra("return-data", true);
         startActivityForResult(intent, 0x03);
+    }
+    @Override
+    protected void onDestroy() {
+        ActiivtyStack.getScreenManager().popActivity(this);
+        super.onDestroy();
     }
 }

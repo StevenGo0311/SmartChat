@@ -14,5 +14,9 @@
     <string name="select_method_camera">拍照</string>
     <string name="select_method_gallery">相册</string>
     <string name="select_method">选择打开方式</string>
+    <string name="clear_record">清除聊天记录</string>
+    <string name="about_smart_chat_content">    SmartChat是一款在线机器人聊天的应用程序。目前支持基本对话，讲笑话，讲故事，查天气，看新闻，查菜谱，查火车票等功能。
+        \n这是我国庆假期为了打发时间做的一个小demo,由于时间紧迫，很多细节还未处理，如果发现bug或者还有其他建议功能。请发邮件到:\nStevenGo0311@163.com</string>
+    <string name="special_thanks_content"></string>
 
 </resources>

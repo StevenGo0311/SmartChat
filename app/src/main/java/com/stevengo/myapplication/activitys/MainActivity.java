@@ -1,12 +1,10 @@
 package com.stevengo.myapplication.activitys;
 
 import android.content.Intent;
-import android.graphics.Bitmap;
 import android.os.Handler;
 import android.os.Message;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -19,14 +17,16 @@ import com.stevengo.myapplication.R;
 import com.stevengo.myapplication.adapters.ChatContentAdapter;
 import com.stevengo.myapplication.entitys.ChatMessage;
 import com.stevengo.myapplication.entitys.Parameter;
-import com.stevengo.myapplication.utils.DateUtils;
+import com.stevengo.myapplication.utils.ActiivtyStack;
+import com.stevengo.myapplication.utils.DateUtil;
 import com.stevengo.myapplication.utils.DoFriendNameUtil;
 import com.stevengo.myapplication.utils.GeneralUtil;
-import com.stevengo.myapplication.utils.IconCacheUtil;
 import com.stevengo.myapplication.utils.InternetUtil;
+import com.stevengo.myapplication.utils.SQLiteUtil;
 import com.stevengo.myapplication.utils.SoftHideKeyBoardUtil;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
@@ -41,7 +41,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private ImageView mIconSend;
 
     private List<ChatMessage> messageList;
-    private static final int SEND_CODE=000000;
+    private static final int SEND_CODE=500000;
 
     private final static String ICON_NAME_RECEIVE="iconRecevie.jpg";
     private final static String ICON_NAME_SEND="iconSend.jpg";
@@ -61,6 +61,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         //沉浸式
         GeneralUtil.fullSceeen(this);
         setContentView(R.layout.activity_main);
+        ActiivtyStack.getScreenManager().pushActivity(this);
         //解决输入法遮挡输入栏的问题
         SoftHideKeyBoardUtil.assistActivity(this);
         initView();
@@ -80,15 +81,17 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         //1.读取好友姓名；
         mTextView.setText(DoFriendNameUtil.readFriendName(this));
         //2.读取历史聊天记录
-
+        messageList.clear();
+        messageList.addAll(SQLiteUtil.readChatMessage(this,0));
+        setAdapter(mListView);
     }
     private void forButtonSend(){
         //1.获取editText的内容；
         final String editContent=mEditText.getText().toString().trim();
         if(!editContent.equals("")){
-            final ChatMessage chatMessage=new ChatMessage(SEND_CODE,editContent);
+            final ChatMessage chatMessage=new ChatMessage(SEND_CODE,editContent, DateUtil.getCurrentDate());
+            SQLiteUtil.writeChatMessage(this,chatMessage);
             messageList.add(chatMessage);
-            DateUtils.getDate();
             setAdapter(mListView);
             mEditText.setText("");
             //判断网络
@@ -98,6 +101,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     public void run() {
                         Parameter parameter=new Parameter(editContent,android.os.Build.MODEL);
                         receiveMessage=InternetUtil.doPost(parameter);
+                        SQLiteUtil.writeChatMessage(getApplicationContext(),receiveMessage);
                         messageList.add(receiveMessage);
                         mHandler.sendEmptyMessage(0);
                     }
@@ -140,5 +144,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     protected void onResume() {
         super.onResume();
         initData();
+    }
+    @Override
+    protected void onDestroy() {
+        ActiivtyStack.getScreenManager().popActivity(this);
+        super.onDestroy();
     }
 }

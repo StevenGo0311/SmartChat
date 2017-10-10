@@ -6,7 +6,6 @@ import android.text.Spannable;
 import android.text.SpannableStringBuilder;
 import android.text.method.LinkMovementMethod;
 import android.text.style.URLSpan;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,7 +16,7 @@ import android.widget.TextView;
 import com.stevengo.myapplication.R;
 import com.stevengo.myapplication.entitys.ChatMessage;
 import com.stevengo.myapplication.utils.CustomUrlSpan;
-import com.stevengo.myapplication.utils.DateUtils;
+import com.stevengo.myapplication.utils.DateUtil;
 import com.stevengo.myapplication.utils.IconCacheUtil;
 
 import java.util.List;
@@ -63,7 +62,7 @@ public class ChatContentAdapter extends BaseAdapter {
     @Override
     public int getItemViewType(int position) {
         int type = mChatMessages.get(position).getCode();
-        if (type<100000) {
+        if (type==500000) {
             return SEND;
         } else {
             return RECEIVE;
@@ -101,10 +100,9 @@ public class ChatContentAdapter extends BaseAdapter {
                     else{
                         viewHolderReceive.imageViewIcon.setImageResource(R.drawable.icon_test_receive);
                     }
-                    viewHolderReceive.imageView.setVisibility(View.VISIBLE);
+//                    viewHolderReceive.imageView.setVisibility(View.VISIBLE);
                     if(i%5==0){
-                        String date= DateUtils.getDate();
-                        viewHolderReceive.textViewTime.setText(date);
+                        viewHolderReceive.textViewTime.setText(DateUtil.formatDate(chatMessage.getDate()));
                         viewHolderReceive.textViewTime.setVisibility(View.VISIBLE);
                     }
                     else{
@@ -113,15 +111,15 @@ public class ChatContentAdapter extends BaseAdapter {
                     switch (chatMessage.getCode()){
                         case 100000:
                             viewHolderReceive.textView.setText(chatMessage.getText());
-                            viewHolderReceive.imageView.setVisibility(View.GONE);
+//                            viewHolderReceive.imageView.setVisibility(View.GONE);
                             break;
                         case 200000:
                             viewHolderReceive.textView.setText(chatMessage.getText()+chatMessage.getUrl());
-                            viewHolderReceive.imageView.setVisibility(View.GONE);
+//                            viewHolderReceive.imageView.setVisibility(View.GONE);
                             break;
                         default:
                             viewHolderReceive.textView.setText(chatMessage.getText());
-                            viewHolderReceive.imageView.setVisibility(View.GONE);
+//                            viewHolderReceive.imageView.setVisibility(View.GONE);
                             break;
                     }
                     interceptHyperLink(viewHolderReceive.textView);
@@ -142,10 +140,9 @@ public class ChatContentAdapter extends BaseAdapter {
                         viewHolderSend.imageViewIcon.setImageResource(R.drawable.icon_test_send);
                     }
                     viewHolderSend.textView.setText(chatMessage.getText());
-                    viewHolderSend.imageView.setVisibility(view.GONE);
+//                    viewHolderSend.imageView.setVisibility(view.GONE);
                     if(i%5==0){
-                        String date= DateUtils.getDate();
-                        viewHolderSend.textViewTime.setText(date);
+                       viewHolderSend.textViewTime.setText(DateUtil.formatDate(chatMessage.getDate()));
                         viewHolderSend.textViewTime.setVisibility(View.VISIBLE);
                     }else{
                         viewHolderSend.textViewTime.setVisibility(View.GONE);
@@ -164,10 +161,9 @@ public class ChatContentAdapter extends BaseAdapter {
                     else{
                         viewHolderReceive.imageViewIcon.setImageResource(R.drawable.icon_test_receive);
                     }
-                    viewHolderReceive.imageView.setVisibility(View.VISIBLE);
+//                    viewHolderReceive.imageView.setVisibility(View.VISIBLE);
                     if(i%5==0){
-                        String date= DateUtils.getDate();
-                        viewHolderReceive.textViewTime.setText(date);
+                        viewHolderReceive.textViewTime.setText(DateUtil.formatDate(chatMessage.getDate()));
                         viewHolderReceive.textViewTime.setVisibility(View.VISIBLE);
                     }
                     else{
@@ -176,15 +172,15 @@ public class ChatContentAdapter extends BaseAdapter {
                     switch (chatMessage.getCode()){
                         case 100000:
                             viewHolderReceive.textView.setText(chatMessage.getText());
-                            viewHolderReceive.imageView.setVisibility(View.GONE);
+//                            viewHolderReceive.imageView.setVisibility(View.GONE);
                             break;
                         case 200000:
                             viewHolderReceive.textView.setText(chatMessage.getText()+chatMessage.getUrl());
-                            viewHolderReceive.imageView.setVisibility(View.GONE);
+//                            viewHolderReceive.imageView.setVisibility(View.GONE);
                             break;
                         default:
                             viewHolderReceive.textView.setText(chatMessage.getText());
-                            viewHolderReceive.imageView.setVisibility(View.GONE);
+//                            viewHolderReceive.imageView.setVisibility(View.GONE);
                             break;
                     }
                     interceptHyperLink(viewHolderReceive.textView);
@@ -200,10 +196,9 @@ public class ChatContentAdapter extends BaseAdapter {
                         viewHolderSend.imageViewIcon.setImageResource(R.drawable.icon_test_send);
                     }
                     viewHolderSend.textView.setText(chatMessage.getText());
-                    viewHolderSend.imageView.setVisibility(view.GONE);
+//                    viewHolderSend.imageView.setVisibility(view.GONE);
                     if(i%5==0){
-                        String date= DateUtils.getDate();
-                        viewHolderSend.textViewTime.setText(date);
+                       viewHolderSend.textViewTime.setText(DateUtil.formatDate(chatMessage.getDate()));
                         viewHolderSend.textViewTime.setVisibility(View.VISIBLE);
                     }else{
                         viewHolderSend.textViewTime.setVisibility(View.GONE);

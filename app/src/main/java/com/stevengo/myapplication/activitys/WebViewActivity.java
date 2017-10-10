@@ -11,6 +11,7 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import com.stevengo.myapplication.R;
+import com.stevengo.myapplication.utils.ActiivtyStack;
 import com.stevengo.myapplication.utils.GeneralUtil;
 
 /**
@@ -24,6 +25,7 @@ public class WebViewActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        ActiivtyStack.getScreenManager().pushActivity(this);
         //沉浸式
         GeneralUtil.fullSceeen(this);
         setContentView(R.layout.activity_webview);
@@ -64,4 +66,9 @@ public class WebViewActivity extends Activity {
 //        wv_content.loadDataWithBaseURL();
     }
 
+    @Override
+    protected void onDestroy() {
+        ActiivtyStack.getScreenManager().popActivity(this);
+        super.onDestroy();
+    }
 }
