@@ -2,6 +2,7 @@ package com.stevengo.myapplication.Base;
 
 /**
  * Created by StevenGo on 2017/10/6.
+ * 常量表
  */
 
 public class ConsTable {

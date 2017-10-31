@@ -11,9 +11,11 @@ import android.view.WindowManager;
 
 /**
  * Created by StevenGo on 2017/10/5.
+ * 通用工具
  */
 
 public class GeneralUtil {
+    /**设置全屏*/
     public static void fullSceeen(Activity activity){
         activity.getWindow().requestFeature(Window.FEATURE_NO_TITLE);
         if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {

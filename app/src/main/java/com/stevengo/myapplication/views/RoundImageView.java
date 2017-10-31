@@ -20,19 +20,22 @@ import android.widget.ImageView;
 
 /**
  * Created by StevenGo on 2017/10/5.
+ * 圆形的头像
  */
 
 public class RoundImageView extends ImageView {
+    /**画笔*/
     private Paint mPaintBitmap = new Paint(Paint.ANTI_ALIAS_FLAG);
     private Bitmap mRawBitmap;
     private BitmapShader mShader;
     private Matrix mMatrix = new Matrix();
-
+    //构造，调用ImageView的构造方法
     public RoundImageView(Context context, AttributeSet attrs) {
         super(context, attrs);
     }
     @Override
     protected void onDraw(Canvas canvas) {
+        //得到Bitmap对象
         Bitmap rawBitmap = getBitmap(getDrawable());
         if (rawBitmap != null) {
             int viewWidth = getWidth();
@@ -55,7 +58,6 @@ public class RoundImageView extends ImageView {
             super.onDraw(canvas);
         }
     }
-
     private Bitmap getBitmap(Drawable drawable) {
         if (drawable instanceof BitmapDrawable) {
             return ((BitmapDrawable) drawable).getBitmap();

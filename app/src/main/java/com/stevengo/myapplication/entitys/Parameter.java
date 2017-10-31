@@ -2,6 +2,7 @@ package com.stevengo.myapplication.entitys;
 
 /**
  * Created by StevenGo on 2017/10/6.
+ * 参数实体
  */
 
 public class Parameter {

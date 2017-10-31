@@ -5,6 +5,7 @@ import java.util.List;
 
 /**
  * Created by StevenGo on 2017/10/6.
+ * 消息实体
  */
 
 public class ChatMessage {

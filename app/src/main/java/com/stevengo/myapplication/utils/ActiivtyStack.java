@@ -6,8 +6,8 @@ import java.util.Stack;
 
 /**
  * Created by StevenGo on 2017/10/9.
+ * activity栈
  */
-
 public class ActiivtyStack {
     private static Stack<Activity> mActivityStack = new Stack<Activity>();
     private static ActiivtyStack instance = new ActiivtyStack();

@@ -16,11 +16,16 @@ import com.stevengo.myapplication.utils.GeneralUtil;
 
 /**
  * Created by abner on 2016/8/31.
+ * 显示网页的页面
  */
 public class WebViewActivity extends Activity {
+    /**url*/
     public static final String WEB_URL = "url";
+    /**布局中定义的webView*/
     private WebView wv_content;
+    /**返回按钮*/
     private Button mButton;
+    /**url*/
     private String url;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,10 +34,14 @@ public class WebViewActivity extends Activity {
         //沉浸式
         GeneralUtil.fullSceeen(this);
         setContentView(R.layout.activity_webview);
+        //从布局文件中得到组件
         wv_content = (WebView) findViewById(R.id.id_webview_content);
         mButton=(Button)findViewById(R.id.id_button_back);
+        //得到传递过来的数据
         getBundleData();
+        //初始化数据
         initData();
+        //给返回按钮设置监听
         mButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -40,14 +49,14 @@ public class WebViewActivity extends Activity {
             }
         });
     }
+    /**取得绑定的数据*/
     private void getBundleData() {
         Intent intent = getIntent();
         if(intent!=null){
             url = intent.getStringExtra(WEB_URL);
         }
     }
-
-
+    /**初始化数据*/
     private void initData() {
         WebSettings settings = wv_content.getSettings();
         settings.setJavaScriptEnabled(true);
@@ -62,6 +71,7 @@ public class WebViewActivity extends Activity {
                 return super.shouldOverrideUrlLoading(view, url);
             }
         });
+        //加载页面
         wv_content.loadUrl(url);
 //        wv_content.loadDataWithBaseURL();
     }

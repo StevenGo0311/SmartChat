@@ -23,17 +23,23 @@ import java.util.List;
 
 /**
  * Created by StevenGo on 2017/10/3.
- *
+ *消息内容适配器
  */
 
 public class ChatContentAdapter extends BaseAdapter {
+    /**消息实体*/
     private List<ChatMessage> mChatMessages;
+    /**上下文*/
     private Context mContext;
+    /**消息来源标记，发送*/
     private final int SEND=0;
+    /**消息来源标记，接收*/
     private final int RECEIVE=1;
     private LayoutInflater inflater;
+    /**头像名称*/
     private final static String ICON_NAME_RECEIVE="iconRecevie.jpg";
     private final static String ICON_NAME_SEND="iconSend.jpg";
+    /**构造，初始化消息阿文和消息，同时得到LayoutInflater对象*/
     public ChatContentAdapter(Context context ,List<ChatMessage> chatMessages){
         this.mContext=context;
         this.mChatMessages =chatMessages;
@@ -59,48 +65,59 @@ public class ChatContentAdapter extends BaseAdapter {
     public long getItemId(int i) {
         return i;
     }
+    /**设置填充类型*/
     @Override
     public int getItemViewType(int position) {
+        //得到消息代码
         int type = mChatMessages.get(position).getCode();
+        //如果是500000设置为发送，如果是其他的设置为接收
         if (type==500000) {
             return SEND;
         } else {
             return RECEIVE;
         }
     }
+    /**设置填充类型数量为2*/
     @Override
     public int getViewTypeCount() {
         return 2;
     }
+
+    /**更改数据*/
     public void onDataChange(List<ChatMessage> chatContent){
         this.mChatMessages=chatContent;
         this.notifyDataSetChanged();
 
     }
-
     @Override
     public View getView(int i, View view, ViewGroup viewGroup) {
         ChatMessage chatMessage= mChatMessages.get(i);
         ViewHolderSend viewHolderSend;
         ViewHolderReceive viewHolderReceive;
-
+        //判断view是否为空，如果为空进行下面的操作
         if(view==null){
+            //判断消息来源
             switch (getItemViewType(i)){
+                //接收
                 case RECEIVE:
                     view=inflater.inflate(R.layout.item_listview_receive_message,null);
+                    //从布局中获取组件
                     viewHolderReceive=new ViewHolderReceive();
                     viewHolderReceive.textView=(TextView) view.findViewById(R.id.id_textview_message_receive);
                     viewHolderReceive.imageView=(ImageView)view.findViewById(R.id.id_imageview_image_receive);
                     viewHolderReceive.textViewTime=(TextView)view.findViewById(R.id.id_textView_time_receive);
                     viewHolderReceive.imageViewIcon=(ImageView)view.findViewById(R.id.id_imageview_icon_receive);
                     Bitmap iconReceive= IconCacheUtil.readIcon(mContext,ICON_NAME_RECEIVE);
+                    //获取头像
                     if(iconReceive!=null){
                         viewHolderReceive.imageViewIcon.setImageBitmap(iconReceive);
                     }
+                    //当头像不存在的时候设置为默认头像
                     else{
                         viewHolderReceive.imageViewIcon.setImageResource(R.drawable.icon_test_receive);
                     }
 //                    viewHolderReceive.imageView.setVisibility(View.VISIBLE);
+                    //添加时间标记
                     if(i%5==0){
                         viewHolderReceive.textViewTime.setText(DateUtil.formatDate(chatMessage.getDate()));
                         viewHolderReceive.textViewTime.setVisibility(View.VISIBLE);
@@ -108,6 +125,7 @@ public class ChatContentAdapter extends BaseAdapter {
                     else{
                         viewHolderReceive.textViewTime.setVisibility(View.GONE);
                     }
+                    //根据消息代码判断消息类型，然后显示不同的效果
                     switch (chatMessage.getCode()){
                         case 100000:
                             viewHolderReceive.textView.setText(chatMessage.getText());
@@ -122,9 +140,12 @@ public class ChatContentAdapter extends BaseAdapter {
 //                            viewHolderReceive.imageView.setVisibility(View.GONE);
                             break;
                     }
+                    //拦截系统对超链接的处理
                     interceptHyperLink(viewHolderReceive.textView);
+                    //设置tag
                     view.setTag(viewHolderReceive);
                     break;
+                //发送
                 case SEND:
                     view=inflater.inflate(R.layout.item_listview_send_message,null);
                     viewHolderSend=new ViewHolderSend();
@@ -150,6 +171,7 @@ public class ChatContentAdapter extends BaseAdapter {
                     view.setTag(viewHolderSend);
                     break;
             }
+
         }else{
             switch (getItemViewType(i)){
                 case RECEIVE:
@@ -220,6 +242,7 @@ public class ChatContentAdapter extends BaseAdapter {
         TextView textViewTime;
         ImageView imageViewIcon;
     }
+    /**拦截系统对超连接的处理*/
     private void interceptHyperLink(TextView tv) {
         //Log.d("StevenGo","拦截");
         tv.setMovementMethod(LinkMovementMethod.getInstance());

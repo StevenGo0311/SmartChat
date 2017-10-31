@@ -6,9 +6,11 @@ import android.database.sqlite.SQLiteOpenHelper;
 
 /**
  * Created by StevenGo on 2017/10/9.
+ * 数据库操作工具
  */
 
 public class MessageRecordSQLiteHelper extends SQLiteOpenHelper {
+    /**创建表的sql语句*/
     private final static String CREATE_TABLE="CREATE TABLE MessageRecord(" +
             "msg_code INT NOT NULL," +
             "msg_text VARCHAR(256) NOT NULL," +
@@ -21,6 +23,7 @@ public class MessageRecordSQLiteHelper extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase sqLiteDatabase) {
+        //执行该语句
         sqLiteDatabase.execSQL(CREATE_TABLE);
 
     }
